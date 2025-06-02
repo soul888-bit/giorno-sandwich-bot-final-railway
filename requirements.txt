@@ -1,0 +1,7 @@
+python-dotenv
+fastapi
+uvicorn
+aiohttp
+certifi
+python-telegram-bot==20.6
+nest_asyncio
