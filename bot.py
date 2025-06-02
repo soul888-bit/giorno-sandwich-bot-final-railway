@@ -216,7 +216,7 @@ nest_asyncio.apply()
 async def main():
     print("\n✅ Giorno Sandwich Bot & Webhook démarrés\n")
 
-    # Initialiser et démarrer le bot Telegram correctement dans la boucle
+    # Initialiser et démarrer le bot Telegram proprement
     await telegram_app.initialize()
     await telegram_app.start()
     asyncio.create_task(telegram_app.updater.start_polling())
@@ -233,6 +233,4 @@ async def main():
 app = api
 
 if __name__ == "__main__":
-    import nest_asyncio
-    nest_asyncio.apply()
     asyncio.run(main())
