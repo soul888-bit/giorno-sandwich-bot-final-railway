@@ -236,11 +236,3 @@ if __name__ == "__main__":
     import nest_asyncio
     nest_asyncio.apply()
     asyncio.run(main())
-
-
-import threading
-
-def start_bot():
-    asyncio.run(main())
-
-threading.Thread(target=start_bot).start()
