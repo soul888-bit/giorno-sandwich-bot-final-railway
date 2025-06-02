@@ -215,19 +215,28 @@ nest_asyncio.apply()
 
 async def main():
     print("\n✅ Giorno Sandwich Bot & Webhook démarrés\n")
+
+    # Initialiser et démarrer le bot Telegram correctement dans la boucle
+    await telegram_app.initialize()
+    await telegram_app.start()
+    asyncio.create_task(telegram_app.updater.start_polling())
+
+    # Lancer la simulation d’opportunités
     asyncio.create_task(simulate_sandwich_trading())
-    asyncio.create_task(telegram_app.run_polling())
+
+    # Lancer le serveur FastAPI
     config = uvicorn.Config(api, host="0.0.0.0", port=8000, loop="asyncio")
     server = uvicorn.Server(config)
     await server.serve()
 
-# Railway cherche "app" dans main.py
+# Railway attend cette variable
 app = api
 
 if __name__ == "__main__":
+    import nest_asyncio
+    nest_asyncio.apply()
     asyncio.run(main())
 
-app = api
 
 import threading
 
