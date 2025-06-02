@@ -232,5 +232,13 @@ async def main():
 # Railway attend cette variable
 app = api
 
-if __name__ == "__main__":
-    asyncio.run(main())
+@app.on_event("startup")
+async def on_startup():
+    print("\n✅ Giorno Sandwich Bot & Webhook démarrés\n")
+    await telegram_app.initialize()
+    await telegram_app.start()
+    asyncio.create_task(telegram_app.updater.start_polling())
+    asyncio.create_task(simulate_sandwich_trading())
+
+app = api
+
