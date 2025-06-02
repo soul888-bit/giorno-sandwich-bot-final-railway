@@ -227,3 +227,11 @@ app = api
 if __name__ == "__main__":
     asyncio.run(main())
 
+app = api
+
+import threading
+
+def start_bot():
+    asyncio.run(main())
+
+threading.Thread(target=start_bot).start()
