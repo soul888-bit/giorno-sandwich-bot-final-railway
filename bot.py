@@ -232,8 +232,6 @@ async def main():
 # Railway attend cette variable
 app = api
 
-app = api  # ← requis pour Railway
-
 if __name__ == "__main__":
     import nest_asyncio
     nest_asyncio.apply()
