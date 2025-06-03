@@ -1,7 +1,8 @@
+aiohttp
 python-dotenv
+certifi
 fastapi
 uvicorn
-aiohttp
-certifi
-python-telegram-bot==20.6
+httpx
+python-telegram-bot==20.3
 nest_asyncio
